@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+  }
+  
+  nav {
+    height: 80px;
+    background: #c9dfec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem calc((100vw - 1300px) / 2);
+  }
+  
+  .logo {
+    color: #000;
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0 2rem;
+  }
+  
+  nav a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #000;
+    padding: 0 1.5rem;
+  }
+  
+  nav a:hover {
+    color: #fff;
+  }
+  
+  .hero {
+    background: #c9dfec;
+  }
+  
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height:fit-content;
+    padding: 3rem calc((100vw - 1300px) / 2);
+  }
+  
+  .column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #000;
+    padding: 0rem 3rem;
+  }
+  
+  .column-left h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: 800;
+  }
+  
+  .column-left h2 {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 200;
+  }
+  
+  .column-left h3 {
+    color: #000;
+    font-size: 1.25rem;
+    font-weight: 100;
+  }
+  
+  .column-left p {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  button {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: none;
+    color: #fdcc04;
+    background: #000;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
+  button:hover {
+    background: #fff;
+    color: #000;
+  }
+  
+  .column-right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0rem 2rem;
+  }
+  
+  .hero-image {
+    width: 75%;
+  }
+  .courses h1 {
+    color: red;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+  }
+  
+  .courses h2 {
+    color:#000;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  .courses h3 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-top: 1.5rem;
+  }
+  
+  .courses p {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin-bottom: .5rem;
+  }
+  
+  .courses ul {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin-left: 2rem;
+    margin-top: 0rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  

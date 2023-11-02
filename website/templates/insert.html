@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Insert{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <h3 align="center">Insert Tire</h3>
+    <div class="form-group">
+        <label for="tireId">Tire ID</label>
+        <input
+            type="number"
+            class="form-control"
+            id="tireId"
+            name="tireId"
+            placeholder="Enter Tire ID"
+        />
+    </div>
+    <div class="form-group">
+        <label for="manufacturer">Manufacturer</label>
+        <input
+            type="text"
+            class="form-control"
+            id="manufacturer"
+            name="manufacturer"
+            placeholder="Enter Tire Manufacturer"
+        />
+    </div>
+    <div class="form-group">
+        <label for="compound">Compound</label>
+        <input
+            type="text"
+            class="form-control"
+            id="compound"
+            name="compound"
+            placeholder="Enter Tire Compound"
+        />
+    </div>
+    <div class="form-group">
+        <label for="corner">Tire Corner</label>
+        <input
+            type="text"
+            class="form-control"
+            id="corner"
+            name="corner"
+            placeholder="Enter Tire Corner"
+        />
+    </div>
+    <div class="form-group">
+        <label for="number">Car Number</label>
+        <input
+            type="number"
+            class="form-control"
+            id="number"
+            name="number"
+            placeholder="Enter Car Number"
+        />
+    </div>
+    <div class="form-group">
+        <label for="laps">Laps Run</label>
+        <input
+            type="number"
+            class="form-control"
+            id="laps"
+            name="laps"
+            placeholder="Enter Number of Laps Run"
+        />
+    </div>
+    <div class="form-group">
+        <label for="cycles">Heat Cycles</label>
+        <input
+            type="number"
+            class="form-control"
+            id="cycles"
+            name="cycles"
+            placeholder="Enter Number of Heat Cycles"
+        />
+    </div>
+    <div class="form-group">
+        <label for="buy">Date of Purchase</label>
+        <input
+            type="date"
+            class="form-control"
+            id="buy"
+            name="buy"
+            placeholder="Enter Date of Purchase"
+        />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-dark">Submit</button>
+</form>
+{% endblock %}
