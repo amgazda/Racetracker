@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Retrieve{% endblock %}
+
+{% block content %}
+<style>
+    .body {
+        padding: 10px;
+    }
+    .column {
+      float: left;
+      padding: 10px;
+      margin: 100px;
+      justify-content: left;
+      border: 10px;
+    }
+    
+    .left {
+      width: 25%;
+      margin: 10px;
+      padding: 10px;
+    }
+    
+    .right {
+      width: 75%;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .columnleft {
+        margin: 5px;
+    }
+
+    .columnright {
+        margin: 5px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+</style>
+<form method="POST" content="width=device-width, initial-scale=1">
+    <div class="row">
+        <div class="columnleft">
+            <h1>Query to execute</h1>
+            <table BORDER=1 CELLPADDING=10>
+                <tr>
+                    <th>Execute</th>
+                    <th>Param1</th>
+                    <th>Param2</th>
+                    <th>Param3</th>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-outline-dark" name="button" value="retr_all">Retrieve All Tires</button>
+                    </td>
+                    <td>
+                        N/A
+                    </td>
+                    <td>
+                        N/A
+                    </td>
+                    <td>
+                        N/A
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-outline-dark" name="button" value="retr_between">Retrieve Tires Purchased between...</button>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input
+                                type="date"
+                                class="form-control"
+                                id="between_sd"
+                                name="between_sd"
+                                placeholder="Enter Start Date"
+                            />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input
+                                type="date"
+                                class="form-control"
+                                id="between_ed"
+                                name="between_ed"
+                                placeholder="Enter End Date"
+                            />
+                        </div>
+                    </td>
+                    <td>
+                        N/A
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="columnright">
+            <h1>Result</h1>
+            <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+            <table class="sortable" BORDER=1 CELLPADDING=10>
+                <tr>
+                    {% for header in namesh%}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in datas%}  
+                <tr>
+                    {% for cell in row%}
+                    <td>
+                        {{ cell }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</form>
+{% endblock %}
