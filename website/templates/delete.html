@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<style>
+    .body {
+        padding: 10px;
+    }
+    .column {
+      float: left;
+      padding: 10px;
+      margin: 100px;
+      justify-content: left;
+      border: 10px;
+    }
+    
+    .left {
+      width: 25%;
+      margin: 10px;
+      padding: 10px;
+    }
+    
+    .right {
+      width: 75%;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .columnleft {
+        margin: 5px;
+        justify-content: left;
+        padding-right: 20px;
+    }
+
+    .columnright {
+        margin: 5px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .custom-select {
+        margin: 20px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .sortable {
+        margin-bottom: 10px;
+    }
+
+</style>
+<form method="POST" content="width=device-width, initial-scale=1">
+    <div class="row">
+        <div class="columnleft">
+            <h1>Select ID of tire to delete</h1>
+            <select class="custom-select" name="sid" id="sid">
+                <option value="none">Select a tire</option>
+                {% for row in dataii%}  
+                    {% for cell in row%}
+                        <option value="{{ cell }}">{{ cell }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-outline-dark" name="button" value="sub">Submit</button>
+        </div>
+        <div class="columnright">
+            <h1>Full entry to be deleted</h1>
+            <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+            <table class="sortable" BORDER=1 CELLPADDING=15>
+                <tr>
+                    {% for header in namesh%}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in datas%}  
+                <tr>
+                    {% for cell in row%}
+                    <td>
+                        {{ cell }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% if show == True %}
+                <label>You are about to delete the tire with the ID </label>
+                <label name="dellabel" value="{{ conf }}'">{{ conf }}</label>
+                <button type="submit" class="btn btn-outline-danger" name="button" value="confdel">Confirm Deletion of tire {{ conf }}</button>
+            {% endif %}
+        </div>
+    </div>
+</form>
+{% endblock %}

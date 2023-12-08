@@ -82,3 +82,33 @@ def retrieve():
                 flash('Error: empty parameter', category='error')
     return render_template("retrieve.html",namesh=names)
 
+@views.route('/delete', methods=['GET', 'POST'])
+def delete():
+    if request.method == 'POST':
+        if request.form['button']=='sub':
+            data=("Placeholder")
+            cursor=connection.cursor()
+            val=request.form['sid']
+            data2=("Placeholder")
+            cursor.callproc("all_ids")
+            for result in cursor.stored_results():
+                data2=result.fetchall()
+                print(data2)
+            if val!='none':
+                cursor.execute("SELECT * FROM tires WHERE tireId="+str(val))
+                data=cursor.fetchall()
+                print(data)
+                return render_template("delete.html",namesh=names,datas=data,dataii=data2,conf=(int(val)),show=True)
+            else:
+                return render_template("delete.html",namesh=names,dataii=data2)
+        elif request.form['button']=='delconf':
+            pass
+    else:
+        data=("Placeholder")
+        cursor=connection.cursor()
+        cursor.callproc("all_ids")
+        for result in cursor.stored_results():
+            data=result.fetchall()
+            print(data)
+        return render_template("delete.html",namesh=names,dataii=data)
+
