@@ -66,7 +66,7 @@
                     {% endfor %}
                 {% endfor %}
             </select>
-            <button type="submit" class="btn btn-outline-dark" name="button" value="sub">Submit</button>
+            <button type="submit" class="btn btn-outline-dark" name="button" value="sub">Load</button>
         </div>
         <div class="columnright">
             <h1>Full entry to be deleted</h1>
@@ -88,8 +88,8 @@
                 {% endfor %}
             </table>
             {% if show == True %}
-                <label>You are about to delete the tire with the ID </label>
-                <label name="dellabel" value="{{ conf }}'">{{ conf }}</label>
+                <label>You are about to delete the tire with the ID {{ conf }}</label>
+                <input type="hidden" id="delid" name="delid" value="{{ conf }}">
                 <button type="submit" class="btn btn-outline-danger" name="button" value="confdel">Confirm Deletion of tire {{ conf }}</button>
             {% endif %}
         </div>

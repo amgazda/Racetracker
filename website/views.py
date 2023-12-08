@@ -101,8 +101,16 @@ def delete():
                 return render_template("delete.html",namesh=names,datas=data,dataii=data2,conf=(int(val)),show=True)
             else:
                 return render_template("delete.html",namesh=names,dataii=data2)
-        elif request.form['button']=='delconf':
-            pass
+        elif request.form['button']=='confdel':
+            idtd=request.form['delid']
+            print(idtd)
+            data2=("Placeholder")
+            cursor=connection.cursor()
+            cursor.callproc("all_ids")
+            for result in cursor.stored_results():
+                data2=result.fetchall()
+                print(data2)
+            return render_template("delete.html",namesh=names,dataii=data2)
     else:
         data=("Placeholder")
         cursor=connection.cursor()
