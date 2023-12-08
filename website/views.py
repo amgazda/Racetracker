@@ -100,12 +100,15 @@ def delete():
                 print(data)
                 return render_template("delete.html",namesh=names,datas=data,dataii=data2,conf=(int(val)),show=True)
             else:
+                flash('Error: select an ID', category='error')
                 return render_template("delete.html",namesh=names,dataii=data2)
         elif request.form['button']=='confdel':
             idtd=request.form['delid']
             print(idtd)
             data2=("Placeholder")
             cursor=connection.cursor()
+            cursor.execute("DELETE FROM tires WHERE tireId="+str(idtd))
+            flash('Tire ' + str(idtd) + " successfully deleted", category='success')
             cursor.callproc("all_ids")
             for result in cursor.stored_results():
                 data2=result.fetchall()
