@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Update{% endblock %}
+
+{% block content %}
+<style>
+    .body {
+        padding: 5px;
+    }
+    .column {
+      float: left;
+      padding: 10px;
+      margin: 100px;
+      justify-content: left;
+      border: 10px;
+    }
+    
+    .left {
+      width: 25%;
+      margin: 10px;
+      padding: 10px;
+    }
+    
+    .right {
+      width: 75%;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .columnleft {
+        margin: 5px;
+        justify-content: left;
+        padding-right: 20px;
+    }
+
+    .columnright {
+        margin: 5px;
+        margin-bottom: 0px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .custom-select {
+        margin: 20px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .sortable {
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        min-width: 400px;
+        margin-bottom: 10px;
+    }
+
+</style>
+<form method="POST" content="width=device-width, initial-scale=1">
+    <div class="row">
+        <div class="columnleft">
+            <h1>Select ID of tire to delete</h1>
+            <select class="custom-select" name="sid" id="sid">
+                <option value="none">Select a tire</option>
+                {% for row in dataii%}  
+                    {% for cell in row%}
+                        <option value="{{ cell }}">{{ cell }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-outline-dark" name="button" value="sub">Load</button>
+        </div>
+        <div class="columnright">
+            <h1>Modify data</h1>
+            {% if show == True %}
+                <div class="form-group">
+                    <label for="tireId">Tire ID</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="tireId"
+                        name="tireId"
+                        placeholder="Enter Tire ID"
+                        value="{{ tireId }}"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="manufacturer">Manufacturer</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="manufacturer"
+                        name="manufacturer"
+                        placeholder="Enter Tire Manufacturer"
+                        value="{{ manufacturer }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="compound">Compound</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="compound"
+                        name="compound"
+                        placeholder="Enter Tire Compound"
+                        value="{{ compound }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="corner">Tire Corner</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="corner"
+                        name="corner"
+                        placeholder="Enter Tire Corner"
+                        value="{{ tireCorner }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="number">Car Number</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="number"
+                        name="number"
+                        placeholder="Enter Car Number"
+                        value="{{ carNumber }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="laps">Laps Run</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="laps"
+                        name="laps"
+                        placeholder="Enter Number of Laps Run"
+                        value="{{ lapsRun }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="cycles">Heat Cycles</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="cycles"
+                        name="cycles"
+                        placeholder="Enter Number of Heat Cycles"
+                        value="{{ heatCycles }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="buy">Date of Purchase</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="buy"
+                        name="buy"
+                        placeholder="Enter Date of Purchase"
+                        value="{{ buyDate }}"
+                    />
+                </div>
+                <button type="submit" class="btn btn-outline-dark" name="button" value="confdel">Submit</button>
+                {% else %}
+                <div class="form-group">
+                    <label for="tireId">Tire ID</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="tireId"
+                        name="tireId"
+                        placeholder="Enter Tire ID"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="manufacturer">Manufacturer</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="manufacturer"
+                        name="manufacturer"
+                        placeholder="Enter Tire Manufacturer"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="compound">Compound</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="compound"
+                        name="compound"
+                        placeholder="Enter Tire Compound"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="corner">Tire Corner</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="corner"
+                        name="corner"
+                        placeholder="Enter Tire Corner"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="number">Car Number</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="number"
+                        name="number"
+                        placeholder="Enter Car Number"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="laps">Laps Run</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="laps"
+                        name="laps"
+                        placeholder="Enter Number of Laps Run"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="cycles">Heat Cycles</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="cycles"
+                        name="cycles"
+                        placeholder="Enter Number of Heat Cycles"
+                        readonly
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="buy">Date of Purchase</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="buy"
+                        name="buy"
+                        placeholder="Enter Date of Purchase"
+                        readonly
+                    />
+                </div>
+                {% endif %}
+        </div>
+    </div>
+</form>
+{% endblock %}

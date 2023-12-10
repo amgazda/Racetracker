@@ -13,7 +13,7 @@ str = 'mysql+mysqlconnector://root:' + pwd + '@34.41.97.159:3306/racetracker'
 
 db = SQLAlchemy()
 DB_NAME = "racetracker.db"
-engine = sqlalchemy.create_engine(str, echo=True)
+engine = sqlalchemy.create_engine(str, echo=True, isolation_level="READ COMMITTED")
 
 Session = sqlalchemy.orm.sessionmaker()
 Session.configure(bind=engine)
